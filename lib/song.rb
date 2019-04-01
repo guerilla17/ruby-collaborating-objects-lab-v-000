@@ -31,5 +31,27 @@ class Song
     self.artist = Artist.find_or_create_by_name(name)
     self.artist.add_song(self)
   end
+<<<<<<< HEAD
   
+=======
+
+  def self.find_by_artist(artist)
+    Song.all.select do | song |
+      song.artist == artist
+    end
+  end
+  
+  def self.all
+    @@all
+  end
+
+  def artist_name=(name)
+    self.artist = Artist.find_or_create_by_name(name)
+  end
+  
+  def save
+    @@all << self
+    self
+  end
+>>>>>>> e27c970e61c160f2c783f6707f190a31ea2a391c
 end
